@@ -1,0 +1,1932 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#635bff">
+<meta name="description" content="Website belajar interaktif untuk siswa SMP kelas 7, 8, dan 9. Pelajari materi, tips belajar, dan uji pemahamanmu.">
+<title>PahamBelajar SMP — Belajar Jadi Mudah</title>
+
+<style>
+:root {
+  --primary: #635bff;
+  --primary-dark: #4941db;
+  --ink: #202344;
+  --muted: #727792;
+  --bg: #f7f8ff;
+  --white: #ffffff;
+  --border: #e8e9f5;
+  --green: #16865c;
+  --red: #d64545;
+  --yellow: #ffca5c;
+  --radius: 20px;
+  --shadow: 0 10px 35px rgba(44, 42, 100, 0.07);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+button, input, select {
+  font: inherit;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible, a:focus-visible, select:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: min(1120px, 90%);
+  margin: auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255,255,255,.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 21px;
+  font-weight: 900;
+  letter-spacing: -.8px;
+}
+
+.brand-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  background: var(--primary);
+  color: white;
+  border-radius: 14px;
+}
+
+.brand span:last-child {
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.menu-button {
+  display: none;
+  border: 1px solid var(--border);
+  background: white;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+.hero {
+  padding: 76px 0 66px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 90% 15%, #e3e0ff 0, transparent 32%),
+    radial-gradient(circle at 10% 90%, #dff8ef 0, transparent 25%),
+    var(--bg);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 13px;
+  border-radius: 30px;
+  background: #eae8ff;
+  color: var(--primary-dark);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 20px 0;
+  font-size: clamp(39px, 5.5vw, 66px);
+  line-height: 1.12;
+  letter-spacing: -2.8px;
+}
+
+.hero h1 span {
+  color: var(--primary);
+}
+
+.hero-copy {
+  max-width: 560px;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 27px;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  padding: 13px 20px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 14px;
+  transition: .2s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 7px 18px #635bff35;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.btn-light {
+  background: white;
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+
+.btn-light:hover {
+  border-color: var(--primary);
+}
+
+.hero-note {
+  margin-top: 23px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.hero-art {
+  position: relative;
+  padding: 28px;
+  background: white;
+  border: 1px solid #efeffa;
+  border-radius: 28px;
+  box-shadow: 0 25px 65px #4941db15;
+  transform: rotate(1deg);
+}
+
+.art-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.art-label {
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.art-pill {
+  color: var(--green);
+  background: #e0f7ed;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.art-card {
+  padding: 22px;
+  margin-bottom: 13px;
+  border-radius: 18px;
+  background: #f6f5ff;
+}
+
+.art-card h3 {
+  font-size: 17px;
+  margin: 7px 0;
+}
+
+.art-card p {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.art-icon {
+  font-size: 30px;
+}
+
+.art-progress {
+  margin-top: 15px;
+  height: 8px;
+  border-radius: 20px;
+  background: #e3e1f9;
+  overflow: hidden;
+}
+
+.art-progress div {
+  height: 100%;
+  width: 72%;
+  background: var(--primary);
+  border-radius: inherit;
+}
+
+.art-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+}
+
+.art-mini {
+  padding: 15px;
+  background: #fff8e8;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.art-mini:last-child {
+  background: #e8f9f1;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: -10px;
+  position: relative;
+  z-index: 2;
+}
+
+.stat {
+  padding: 23px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.stat strong {
+  display: block;
+  color: var(--primary);
+  font-size: 25px;
+}
+
+.stat span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+section.content-section {
+  padding: 82px 0;
+}
+
+.section-heading {
+  max-width: 680px;
+  margin: 0 auto 38px;
+  text-align: center;
+}
+
+.section-heading .eyebrow {
+  margin-bottom: 12px;
+}
+
+.section-heading h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  letter-spacing: -1.4px;
+  line-height: 1.25;
+  margin-bottom: 13px;
+}
+
+.section-heading p {
+  color: var(--muted);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  padding: 25px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: .2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.card-icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 17px;
+  border-radius: 16px;
+  background: #eeecff;
+  font-size: 25px;
+}
+
+.card:nth-child(2) .card-icon {
+  background: #e2f8ef;
+}
+
+.card:nth-child(3) .card-icon {
+  background: #fff2d9;
+}
+
+.card h3 {
+  margin-bottom: 9px;
+  font-size: 18px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.tag {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: #f1f1fa;
+  color: #656984;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.soft-section {
+  background: #efefff;
+}
+
+.steps {
+  max-width: 800px;
+  margin: auto;
+  display: grid;
+  gap: 16px;
+}
+
+.step {
+  display: flex;
+  gap: 19px;
+  padding: 23px;
+  background: white;
+  border-radius: 17px;
+  border: 1px solid #e5e3ff;
+}
+
+.step-number {
+  flex: 0 0 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  background: var(--primary);
+  color: white;
+  font-weight: 900;
+  border-radius: 14px;
+}
+
+.step h3 {
+  margin-bottom: 5px;
+}
+
+.step p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.example-box {
+  margin-top: 22px;
+  padding: 22px;
+  background: #fff8e8;
+  border: 1px solid #ffe8b3;
+  border-radius: 16px;
+}
+
+.example-box strong {
+  display: block;
+  margin-bottom: 7px;
+}
+
+.example-box p {
+  color: #68552d;
+  font-size: 14px;
+}
+
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.subject {
+  padding: 24px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+}
+
+.subject-icon {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.subject h3 {
+  margin-bottom: 9px;
+}
+
+.subject p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.subject ul {
+  padding-left: 19px;
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+.subject li {
+  margin: 5px 0;
+}
+
+.study-plan {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.plan-card {
+  padding: 27px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+
+.plan-card h3 {
+  margin-bottom: 16px;
+}
+
+.plan-row {
+  display: flex;
+  gap: 13px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.plan-row:last-child {
+  border-bottom: 0;
+}
+
+.plan-time {
+  min-width: 95px;
+  color: var(--primary);
+  font-weight: 900;
+}
+
+.quiz-intro {
+  padding: 30px;
+  background: linear-gradient(135deg, #635bff, #827bff);
+  color: white;
+  border-radius: 22px;
+  margin-bottom: 25px;
+}
+
+.quiz-intro h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.quiz-intro p {
+  font-size: 14px;
+  color: #eeedff;
+}
+
+.quiz-intro ul {
+  margin: 15px 0 0 20px;
+  font-size: 13px;
+  color: #eeedff;
+}
+
+.quiz-panel {
+  padding: 30px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+
+.quiz-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--muted);
+}
+
+.progress-track {
+  height: 8px;
+  background: #ececf7;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 26px;
+}
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background: var(--primary);
+  transition: width .25s;
+}
+
+.quiz-subject {
+  display: inline-block;
+  background: #efedff;
+  color: var(--primary-dark);
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.question-title {
+  font-size: 21px;
+  line-height: 1.5;
+  margin-bottom: 23px;
+}
+
+.options {
+  display: grid;
+  gap: 12px;
+}
+
+.option {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 15px;
+  background: white;
+  border: 1.5px solid #e4e5f0;
+  border-radius: 13px;
+  color: var(--ink);
+  text-align: left;
+  font-size: 14px;
+  transition: .15s;
+}
+
+.option:hover {
+  border-color: #aaa5ff;
+  background: #faf9ff;
+}
+
+.option.selected {
+  border-color: var(--primary);
+  background: #f1f0ff;
+}
+
+.option:disabled {
+  cursor: default;
+}
+
+.option-letter {
+  flex: 0 0 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #e2e2f0;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.option.selected .option-letter {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.quiz-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+}
+
+.quiz-bottom p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.btn:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.result {
+  display: none;
+}
+
+.result.visible {
+  display: block;
+}
+
+.result-hero {
+  padding: 34px;
+  background: linear-gradient(135deg, #eeecff, #e6f8f0);
+  text-align: center;
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+
+.result-emoji {
+  font-size: 45px;
+}
+
+.result-score {
+  color: var(--primary);
+  font-size: 55px;
+  font-weight: 950;
+  line-height: 1.3;
+  margin: 8px 0;
+}
+
+.result-hero p {
+  color: var(--muted);
+}
+
+.result-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.result-stat {
+  padding: 18px 10px;
+  background: #f8f8ff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  text-align: center;
+}
+
+.result-stat strong {
+  display: block;
+  font-size: 23px;
+}
+
+.result-stat span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.review-title {
+  margin: 27px 0 14px;
+}
+
+.review-item {
+  margin: 13px 0;
+  padding: 19px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+}
+
+.review-item.correct {
+  border-left: 5px solid var(--green);
+}
+
+.review-item.wrong {
+  border-left: 5px solid var(--red);
+}
+
+.review-item h4 {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.review-item p {
+  margin: 6px 0;
+  font-size: 13px;
+}
+
+.review-item .answer-label {
+  font-weight: 900;
+}
+
+.review-item .explanation {
+  color: var(--muted);
+}
+
+.result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: auto;
+}
+
+details {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 19px;
+  margin: 11px 0;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 800;
+}
+
+details p {
+  color: var(--muted);
+  font-size: 14px;
+  padding-top: 12px;
+}
+
+.cta {
+  padding: 65px 0;
+  background: #242344;
+  color: white;
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  margin-bottom: 12px;
+}
+
+.cta p {
+  max-width: 620px;
+  margin: 0 auto 25px;
+  color: #c9c9e1;
+}
+
+footer {
+  padding: 27px 0;
+  text-align: center;
+  background: #19192f;
+  color: #bcbcd2;
+  font-size: 12px;
+}
+
+footer strong {
+  color: white;
+}
+
+@media (max-width: 850px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .hero-art {
+    max-width: 520px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .cards, .subject-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav-links {
+    gap: 13px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 91%;
+  }
+
+  .navbar {
+    min-height: 68px;
+    flex-wrap: wrap;
+    padding: 12px 0;
+  }
+
+  .brand {
+    font-size: 18px;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 5px 0;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 11px 5px;
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+  }
+
+  .hero {
+    padding: 50px 0;
+  }
+
+  .hero h1 {
+    letter-spacing: -1.8px;
+  }
+
+  .hero-copy {
+    font-size: 15px;
+  }
+
+  .hero-art {
+    padding: 18px;
+  }
+
+  .art-card {
+    padding: 17px;
+  }
+
+  .stats {
+    gap: 8px;
+  }
+
+  .stat {
+    padding: 15px 5px;
+  }
+
+  .stat strong {
+    font-size: 21px;
+  }
+
+  .stat span {
+    font-size: 10px;
+  }
+
+  section.content-section {
+    padding: 58px 0;
+  }
+
+  .cards, .subject-grid, .study-plan {
+    grid-template-columns: 1fr;
+  }
+
+  .card, .subject {
+    padding: 22px;
+  }
+
+  .step {
+    padding: 17px;
+    gap: 13px;
+  }
+
+  .step-number {
+    flex-basis: 36px;
+    height: 36px;
+  }
+
+  .quiz-intro, .quiz-panel {
+    padding: 20px;
+  }
+
+  .question-title {
+    font-size: 18px;
+  }
+
+  .option {
+    padding: 12px;
+  }
+
+  .result-stats {
+    gap: 7px;
+  }
+
+  .result-stat {
+    padding: 14px 4px;
+  }
+
+  .result-stat strong {
+    font-size: 20px;
+  }
+
+  .result-stat span {
+    font-size: 10px;
+  }
+
+  .result-score {
+    font-size: 46px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container navbar">
+    <a href="#beranda" class="brand" aria-label="PahamBelajar beranda">
+      <span class="brand-icon">📘</span>
+      <span>Paham<span>Belajar.</span></span>
+    </a>
+
+    <button class="menu-button" id="menu-button"
+      aria-expanded="false" aria-controls="nav-links">
+      ☰ Menu
+    </button>
+
+    <nav class="nav-links" id="nav-links" aria-label="Navigasi utama">
+      <a href="#beranda">Beranda</a>
+      <a href="#tips">Tips Belajar</a>
+      <a href="#materi">Materi SMP</a>
+      <a href="#jadwal">Jadwal</a>
+      <a href="#latihan">Latihan Soal</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="beranda">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">✨ Teman Belajar Anak SMP</span>
+        <h1>Belajar Lebih Mudah, <span>Nilai Makin Baik!</span></h1>
+
+        <p class="hero-copy">
+          Bingung saat guru menjelaskan? Sulit mengingat materi?
+          Di PahamBelajar, kamu bisa belajar memahami pelajaran,
+          membangun kebiasaan belajar yang baik, dan menguji
+          pengetahuanmu lewat latihan soal.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="#materi">Jelajahi Materi →</a>
+          <a class="btn btn-light" href="#latihan">Mulai Latihan ✍️</a>
+        </div>
+
+        <p class="hero-note">
+          🎓 Untuk siswa SMP kelas 7, 8, dan 9 · Belajar sesuai kemampuanmu
+        </p>
+      </div>
+
+      <div class="hero-art">
+        <div class="art-top">
+          <span class="art-label">📚 Ruang Belajar Saya</span>
+          <span class="art-pill">SIAP BELAJAR</span>
+        </div>
+
+        <div class="art-card">
+          <div class="art-icon">🧠</div>
+          <h3>Pahami, Jangan Hanya Menghafal</h3>
+          <p>Pelajari konsepnya, cari contohnya, lalu coba jelaskan kembali.</p>
+          <div class="art-progress"><div></div></div>
+        </div>
+
+        <div class="art-bottom">
+          <div class="art-mini">✏️ Catat poin penting</div>
+          <div class="art-mini">🎯 Latihan mandiri</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container stats">
+    <div class="stat">
+      <strong>3</strong>
+      <span>Jenjang SMP</span>
+    </div>
+    <div class="stat">
+      <strong>6+</strong>
+      <span>Topik Pembelajaran</span>
+    </div>
+    <div class="stat">
+      <strong>15</strong>
+      <span>Soal Latihan Interaktif</span>
+    </div>
+  </div>
+
+  <section class="content-section" id="tips">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">🌟 Kebiasaan Baik</span>
+        <h2>Bagaimana Cara Memahami Penjelasan Guru?</h2>
+        <p>
+          Kamu tidak harus langsung mengerti semuanya.
+          Gunakan kebiasaan berikut untuk membantu memahami
+          pelajaran sedikit demi sedikit.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="card-icon">👂</div>
+          <h3>1. Dengarkan dengan Fokus</h3>
+          <p>
+            Simpan barang yang mengganggu perhatian dan arahkan
+            perhatian pada penjelasan guru. Perhatikan kata kunci,
+            contoh, serta bagian yang diulang.
+          </p>
+          <span class="tag">Saat di kelas</span>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">📝</div>
+          <h3>2. Catat Inti Pelajaran</h3>
+          <p>
+            Catat judul, istilah penting, rumus, contoh, dan kesimpulan.
+            Gunakan kalimat singkat agar catatan mudah dibaca kembali.
+          </p>
+          <span class="tag">Membuat catatan</span>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🙋</div>
+          <h3>3. Jangan Takut Bertanya</h3>
+          <p>
+            Jika bingung, katakan bagian yang belum kamu pahami.
+            Minta guru mengulang atau memberikan contoh lain.
+          </p>
+          <span class="tag">Berani mencoba</span>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🔄</div>
+          <h3>4. Jelaskan dengan Bahasamu</h3>
+          <p>
+            Setelah belajar, tutup buku dan jelaskan kembali
+            materi seolah-olah kamu sedang mengajar temanmu.
+          </p>
+          <span class="tag">Menguji pemahaman</span>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🧩</div>
+          <h3>5. Pecah Materi yang Sulit</h3>
+          <p>
+            Jangan mempelajari satu bab sekaligus jika terasa berat.
+            Bagi materi menjadi bagian kecil, lalu pelajari satu per satu.
+          </p>
+          <span class="tag">Belajar bertahap</span>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">⏰</div>
+          <h3>6. Ulangi Secara Teratur</h3>
+          <p>
+            Luangkan waktu untuk mengingat kembali materi setelah
+            sekolah dan beberapa hari kemudian. Kerjakan soal tanpa
+            melihat catatan terlebih dahulu.
+          </p>
+          <span class="tag">Latihan mandiri</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section soft-section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">🪜 Panduan Praktis</span>
+        <h2>4 Langkah Saat Guru Menjelaskan</h2>
+        <p>
+          Ikuti alur ini supaya kamu tahu apa yang harus dilakukan
+          sebelum, selama, dan setelah pelajaran.
+        </p>
+      </div>
+
+      <div class="steps">
+        <article class="step">
+          <div class="step-number">01</div>
+          <div>
+            <h3>Persiapkan Diri Sebelum Belajar</h3>
+            <p>
+              Siapkan buku dan alat tulis. Lihat judul materi yang
+              akan dipelajari agar kamu memiliki gambaran awal.
+            </p>
+          </div>
+        </article>
+
+        <article class="step">
+          <div class="step-number">02</div>
+          <div>
+            <h3>Dengarkan dan Cari Intinya</h3>
+            <p>
+              Perhatikan apa yang sedang dijelaskan guru, mengapa
+              hal itu penting, dan bagaimana contoh yang diberikan
+              berhubungan dengan materi.
+            </p>
+          </div>
+        </article>
+
+        <article class="step">
+          <div class="step-number">03</div>
+          <div>
+            <h3>Tandai Bagian yang Membingungkan</h3>
+            <p>
+              Beri tanda tanya di catatanmu. Saat ada kesempatan,
+              tanyakan bagian tersebut dengan kalimat yang jelas.
+            </p>
+          </div>
+        </article>
+
+        <article class="step">
+          <div class="step-number">04</div>
+          <div>
+            <h3>Periksa Pemahaman Setelah Kelas</h3>
+            <p>
+              Tutup buku, ingat kembali tiga hal yang dipelajari,
+              lalu kerjakan satu atau dua soal tanpa melihat jawaban.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <div class="example-box">
+        <strong>💡 Contoh cara bertanya kepada guru</strong>
+        <p>
+          “Bu/Pak, saya sudah memahami langkah pertama, tetapi masih
+          bingung mengapa hasilnya bisa seperti itu. Bisa diberikan
+          contoh lain?”
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section" id="materi">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">📖 Belajar SMP</span>
+        <h2>Kenali Berbagai Mata Pelajaran</h2>
+        <p>
+          Berikut gambaran konsep dasar dari beberapa pelajaran
+          yang sering dipelajari di SMP.
+        </p>
+      </div>
+
+      <div class="subject-grid">
+        <article class="subject">
+          <div class="subject-icon">➗</div>
+          <h3>Matematika</h3>
+          <p>
+            Matematika mempelajari bilangan, pola, bentuk, pengukuran,
+            dan cara menyelesaikan masalah secara logis.
+          </p>
+          <ul>
+            <li>Bilangan bulat dan pecahan</li>
+            <li>Aljabar dan persamaan</li>
+            <li>Bangun datar dan bangun ruang</li>
+          </ul>
+        </article>
+
+        <article class="subject">
+          <div class="subject-icon">🔬</div>
+          <h3>IPA</h3>
+          <p>
+            IPA membantu kita memahami alam melalui pengamatan,
+            pengukuran, percobaan, dan penalaran ilmiah.
+          </p>
+          <ul>
+            <li>Makhluk hidup dan ekosistem</li>
+            <li>Zat dan perubahannya</li>
+            <li>Gaya, energi, dan gerak</li>
+          </ul>
+        </article>
+
+        <article class="subject">
+          <div class="subject-icon">🌏</div>
+          <h3>IPS</h3>
+          <p>
+            IPS mempelajari kehidupan masyarakat, lingkungan,
+            kegiatan ekonomi, sejarah, dan hubungan antarmanusia.
+          </p>
+          <ul>
+            <li>Interaksi sosial</li>
+            <li>Kegiatan ekonomi</li>
+            <li>Sejarah dan geografi</li>
+          </ul>
+        </article>
+
+        <article class="subject">
+          <div class="subject-icon">📚</div>
+          <h3>Bahasa Indonesia</h3>
+          <p>
+            Pelajaran ini melatih kemampuan memahami bacaan,
+            menyampaikan gagasan, dan menulis secara teratur.
+          </p>
+          <ul>
+            <li>Ide pokok dan simpulan</li>
+            <li>Teks deskripsi dan narasi</li>
+            <li>Ejaan dan kalimat efektif</li>
+          </ul>
+        </article>
+
+        <article class="subject">
+          <div class="subject-icon">🇬🇧</div>
+          <h3>Bahasa Inggris</h3>
+          <p>
+            Pelajari kosakata, susunan kalimat, dan cara
+            menyampaikan informasi sederhana dalam bahasa Inggris.
+          </p>
+          <ul>
+            <li>Vocabulary atau kosakata</li>
+            <li>Simple present tense</li>
+            <li>Reading comprehension</li>
+          </ul>
+        </article>
+
+        <article class="subject">
+          <div class="subject-icon">🤝</div>
+          <h3>Pendidikan Pancasila</h3>
+          <p>
+            Pelajari nilai Pancasila, hak dan kewajiban,
+            aturan, serta kehidupan bersama dalam masyarakat.
+          </p>
+          <ul>
+            <li>Nilai Pancasila</li>
+            <li>Hak dan kewajiban</li>
+            <li>Musyawarah dan keberagaman</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section soft-section" id="jadwal">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">🗓️ Kelola Waktu</span>
+        <h2>Contoh Jadwal Belajar Harian</h2>
+        <p>
+          Jadwal ini bisa kamu sesuaikan dengan waktu sekolah,
+          pekerjaan rumah, istirahat, dan kegiatan lainnya.
+        </p>
+      </div>
+
+      <div class="study-plan">
+        <article class="plan-card">
+          <h3>📅 Setelah Pulang Sekolah</h3>
+          <div class="plan-row">
+            <span class="plan-time">30 menit</span>
+            <span>Istirahat dan makan.</span>
+          </div>
+          <div class="plan-row">
+            <span class="plan-time">15 menit</span>
+            <span>Mengingat kembali pelajaran hari ini.</span>
+          </div>
+          <div class="plan-row">
+            <span class="plan-time">25 menit</span>
+            <span>Mengerjakan tugas sekolah.</span>
+          </div>
+          <div class="plan-row">
+            <span class="plan-time">5 menit</span>
+            <span>Istirahat sejenak.</span>
+          </div>
+        </article>
+
+        <article class="plan-card">
+          <h3>🌙 Sesi Belajar Tambahan</h3>
+          <div class="plan-row">
+            <span class="plan-time">20 menit</span>
+            <span>Pelajari satu materi yang masih sulit.</span>
+          </div>
+          <div class="plan-row">
+            <span class="plan-time">15 menit</span>
+            <span>Latihan soal tanpa melihat catatan.</span>
+          </div>
+          <div class="plan-row">
+            <span class="plan-time">10 menit</span>
+            <span>Periksa jawaban dan pahami kesalahan.</span>
+          </div>
+          <div class="plan-row">
+            <span class="plan-time">5 menit</span>
+            <span>Siapkan perlengkapan sekolah besok.</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section" id="latihan">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">🎯 Uji Pengetahuanmu</span>
+        <h2>Latihan Soal SMP</h2>
+        <p>
+          Kerjakan 15 soal dari beberapa mata pelajaran.
+          Pilih jawaban terbaik dan periksa hasilnya setelah selesai.
+        </p>
+      </div>
+
+      <div class="quiz-intro">
+        <h3>📝 Siap Menguji Pemahaman?</h3>
+        <p>
+          Kuis ini dirancang untuk latihan mandiri siswa SMP.
+          Soal mencakup Matematika, IPA, IPS, Bahasa Indonesia,
+          Bahasa Inggris, dan Pendidikan Pancasila.
+        </p>
+        <ul>
+          <li>Ada 15 soal pilihan ganda.</li>
+          <li>Setiap soal memiliki satu jawaban terbaik.</li>
+          <li>Tidak ada tanda benar atau salah saat mengerjakan.</li>
+          <li>Nilai dan pembahasan muncul setelah kuis dikumpulkan.</li>
+        </ul>
+      </div>
+
+      <div class="quiz-panel" id="quiz-panel">
+        <div class="quiz-top">
+          <span id="question-counter">Soal 1 dari 15</span>
+          <span id="answered-counter">Terjawab: 0/15</span>
+        </div>
+
+        <div class="progress-track" role="progressbar"
+          aria-label="Progres soal" aria-valuemin="0"
+          aria-valuemax="15" aria-valuenow="0" id="progress-track">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div id="question-area">
+          <span class="quiz-subject" id="question-subject">Matematika</span>
+          <h3 class="question-title" id="question-title"></h3>
+          <div class="options" id="options"></div>
+        </div>
+
+        <div class="quiz-bottom">
+          <p id="navigation-hint">Pilih satu jawaban untuk melanjutkan.</p>
+          <button class="btn btn-primary" id="next-button" disabled>
+            Soal Berikutnya →
+          </button>
+        </div>
+      </div>
+
+      <div class="quiz-panel result" id="result-panel" aria-live="polite">
+        <div class="result-hero">
+          <div class="result-emoji" id="result-emoji">🎉</div>
+          <h3 id="result-title">Kuis Selesai!</h3>
+          <div class="result-score" id="result-score">0</div>
+          <p id="result-message"></p>
+        </div>
+
+        <div class="result-stats">
+          <div class="result-stat">
+            <strong id="correct-count">0</strong>
+            <span>Jawaban Benar</span>
+          </div>
+          <div class="result-stat">
+            <strong id="wrong-count">0</strong>
+            <span>Jawaban Salah</span>
+          </div>
+          <div class="result-stat">
+            <strong id="unanswered-count">0</strong>
+            <span>Tidak Dijawab</span>
+          </div>
+        </div>
+
+        <h3 class="review-title">📋 Pembahasan Semua Soal</h3>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:15px">
+          Pelajari kembali jawabanmu dan pahami alasan di balik
+          setiap jawaban yang tepat.
+        </p>
+
+        <div id="review-list"></div>
+
+        <div class="result-actions">
+          <button class="btn btn-primary" id="retry-button">
+            🔄 Ulangi Kuis
+          </button>
+          <button class="btn btn-light" id="print-button">
+            🖨️ Cetak Hasil
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section soft-section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">💬 Pertanyaan Umum</span>
+        <h2>Masih Bingung Cara Belajar?</h2>
+        <p>Beberapa jawaban yang bisa membantu kamu memulai.</p>
+      </div>
+
+      <div class="faq-list">
+        <details>
+          <summary>Bagaimana jika saya lambat memahami pelajaran?</summary>
+          <p>
+            Pelajari materi dalam bagian kecil, cari contoh yang mudah,
+            lalu ulangi secara bertahap. Kecepatan belajar setiap orang
+            berbeda. Fokuslah pada perkembanganmu sendiri.
+          </p>
+        </details>
+
+        <details>
+          <summary>Bagaimana jika saya malu bertanya kepada guru?</summary>
+          <p>
+            Tuliskan pertanyaan di buku terlebih dahulu. Kamu dapat
+            bertanya setelah kelas atau meminta penjelasan secara pribadi
+            jika merasa lebih nyaman.
+          </p>
+        </details>
+
+        <details>
+          <summary>Apakah menghafal saja cukup untuk mendapatkan nilai baik?</summary>
+          <p>
+            Menghafal dapat membantu mengingat fakta, tetapi memahami
+            konsep dan berlatih menerapkannya juga penting, terutama
+            untuk soal yang memerlukan penalaran.
+          </p>
+        </details>
+
+        <details>
+          <summary>Apakah kuis ini menyimpan nilai saya?</summary>
+          <p>
+            Versi ini menghitung nilai di browser dan menampilkannya
+            setelah kuis selesai. Nilai tidak dikirim ke server atau
+            disimpan secara permanen.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Setiap Hari Adalah Kesempatan untuk Belajar!</h2>
+      <p>
+        Jangan takut salah saat berlatih. Gunakan kesalahan sebagai
+        petunjuk untuk mengetahui materi yang perlu kamu pelajari lagi.
+      </p>
+      <a href="#latihan" class="btn btn-primary"
+        style="background:#ffca5c;color:#242344;box-shadow:none">
+        Kerjakan Latihan Sekarang →
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p><strong>PahamBelajar.</strong> — Teman Belajar Siswa SMP.</p>
+    <p style="margin-top:6px">
+      Belajar dengan tekun, pahami prosesnya, dan terus berkembang.
+    </p>
+    <p style="margin-top:12px">© 2026 PahamBelajar</p>
+  </div>
+</footer>
+
+<script>
+"use strict";
+
+// JavaScript, file: index.html, target: browser modern.
+
+const questions = [
+  {
+    subject: "Matematika",
+    question: "Hasil dari 3/4 + 1/2 adalah ...",
+    options: ["4/6", "5/4", "4/4", "3/8"],
+    answer: 1,
+    explanation: "Samakan penyebut menjadi 4. Pecahan 1/2 sama dengan 2/4, sehingga 3/4 + 2/4 = 5/4 atau 1 1/4."
+  },
+  {
+    subject: "Matematika",
+    question: "Jika 3x + 5 = 20, nilai x adalah ...",
+    options: ["3", "5", "8", "15"],
+    answer: 1,
+    explanation: "Kurangi kedua sisi dengan 5 sehingga 3x = 15. Kemudian bagi kedua sisi dengan 3, jadi x = 5."
+  },
+  {
+    subject: "Matematika",
+    question: "Sebuah persegi memiliki panjang sisi 8 cm. Luasnya adalah ...",
+    options: ["16 cm²", "32 cm²", "64 cm²", "24 cm²"],
+    answer: 2,
+    explanation: "Luas persegi adalah sisi × sisi. Jadi, 8 × 8 = 64 cm²."
+  },
+  {
+    subject: "IPA",
+    question: "Organ tubuh manusia yang berfungsi memompa darah ke seluruh tubuh adalah ...",
+    options: ["Paru-paru", "Lambung", "Ginjal", "Jantung"],
+    answer: 3,
+    explanation: "Jantung memompa darah melalui pembuluh darah agar oksigen dan zat yang dibutuhkan tubuh dapat diedarkan."
+  },
+  {
+    subject: "IPA",
+    question: "Dalam proses fotosintesis, tumbuhan hijau menggunakan energi dari ...",
+    options: ["Cahaya matahari", "Suara lingkungan", "Tanah saja", "Angin"],
+    answer: 0,
+    explanation: "Klorofil membantu menangkap energi cahaya yang digunakan tumbuhan untuk membuat zat makanan melalui fotosintesis."
+  },
+  {
+    subject: "IPA",
+    question: "Perubahan wujud dari cair menjadi gas disebut ...",
+    options: ["Membeku", "Menguap", "Mengembun", "Menyublim"],
+    answer: 1,
+    explanation: "Menguap adalah perubahan wujud dari cair menjadi gas, misalnya air yang berubah menjadi uap ketika menerima energi panas."
+  },
+  {
+    subject: "IPS",
+    question: "Kegiatan menghasilkan barang atau jasa untuk memenuhi kebutuhan disebut ...",
+    options: ["Konsumsi", "Distribusi", "Produksi", "Negosiasi"],
+    answer: 2,
+    explanation: "Produksi merupakan kegiatan menghasilkan atau menambah nilai guna barang dan jasa."
+  },
+  {
+    subject: "IPS",
+    question: "Garis khayal yang membagi Bumi menjadi belahan utara dan selatan adalah ...",
+    options: ["Garis bujur utama", "Garis khatulistiwa", "Garis tanggal internasional", "Garis balik utara"],
+    answer: 1,
+    explanation: "Garis khatulistiwa atau ekuator berada pada lintang 0° dan membagi Bumi menjadi belahan utara serta selatan."
+  },
+  {
+    subject: "Bahasa Indonesia",
+    question: "Bacalah kalimat berikut: 'Rina rajin membaca setiap malam sehingga pengetahuannya bertambah.' Gagasan yang paling tepat adalah ...",
+    options: [
+      "Rina tidak menyukai buku.",
+      "Membaca dapat menambah pengetahuan.",
+      "Rina membaca hanya pada pagi hari.",
+      "Pengetahuan tidak berhubungan dengan membaca."
+    ],
+    answer: 1,
+    explanation: "Kalimat menunjukkan hubungan antara kebiasaan membaca dan bertambahnya pengetahuan Rina."
+  },
+  {
+    subject: "Bahasa Indonesia",
+    question: "Kalimat yang menggunakan ejaan baku adalah ...",
+    options: [
+      "Saya membeli obat di apotik.",
+      "Adik sedang mengantri di depan kelas.",
+      "Ibu memberi nasihat kepada saya.",
+      "Ayah pergi ke kantor menggunakan bis."
+    ],
+    answer: 2,
+    explanation: "Nasihat adalah bentuk baku. Bentuk baku lainnya pada pilihan yang salah adalah apotek, mengantre, dan bus."
+  },
+  {
+    subject: "Bahasa Inggris",
+    question: "Choose the correct sentence to describe a daily habit.",
+    options: [
+      "She go to school every day.",
+      "She going to school every day.",
+      "She goes to school every day.",
+      "She gone to school every day."
+    ],
+    answer: 2,
+    explanation: "Dalam simple present tense, subjek orang ketiga tunggal seperti she menggunakan kata kerja dengan akhiran -s atau -es. Bentuk yang tepat adalah goes."
+  },
+  {
+    subject: "Bahasa Inggris",
+    question: "What is the opposite of 'expensive'?",
+    options: ["Cheap", "Large", "Beautiful", "Difficult"],
+    answer: 0,
+    explanation: "Expensive berarti mahal, sedangkan cheap berarti murah."
+  },
+  {
+    subject: "Pendidikan Pancasila",
+    question: "Ketika anggota kelas memiliki pendapat berbeda dalam menentukan ketua kelas, tindakan yang sesuai dengan musyawarah adalah ...",
+    options: [
+      "Memaksa semua orang mengikuti satu pendapat.",
+      "Mendengarkan pendapat dan mencari kesepakatan bersama.",
+      "Mengabaikan pendapat teman.",
+      "Membatalkan diskusi tanpa alasan."
+    ],
+    answer: 1,
+    explanation: "Musyawarah mengutamakan pertukaran pendapat, sikap saling menghormati, dan upaya mencapai kesepakatan bersama."
+  },
+  {
+    subject: "Pendidikan Pancasila",
+    question: "Salah satu contoh pelaksanaan kewajiban siswa di sekolah adalah ...",
+    options: [
+      "Meminta nilai tinggi tanpa belajar.",
+      "Mengganggu teman yang sedang belajar.",
+      "Mengabaikan tata tertib sekolah.",
+      "Menjaga kebersihan dan menaati tata tertib."
+    ],
+    answer: 3,
+    explanation: "Menjaga kebersihan dan menaati tata tertib merupakan bentuk tanggung jawab siswa dalam lingkungan sekolah."
+  },
+  {
+    subject: "IPA",
+    question: "Sebuah benda menempuh jarak 120 meter dalam waktu 20 sekon. Kelajuan rata-ratanya adalah ...",
+    options: ["4 m/s", "5 m/s", "6 m/s", "10 m/s"],
+    answer: 2,
+    explanation: "Kelajuan rata-rata = jarak ÷ waktu. Jadi, 120 meter ÷ 20 sekon = 6 m/s."
+  }
+];
+
+const LETTERS = ["A", "B", "C", "D"];
+
+let current_question = 0;
+let answers = Array(questions.length).fill(null);
+let quiz_finished = false;
+
+const menu_button = document.getElementById("menu-button");
+const nav_links = document.getElementById("nav-links");
+const question_counter = document.getElementById("question-counter");
+const answered_counter = document.getElementById("answered-counter");
+const progress_track = document.getElementById("progress-track");
+const progress_bar = document.getElementById("progress-bar");
+const question_subject = document.getElementById("question-subject");
+const question_title = document.getElementById("question-title");
+const options_container = document.getElementById("options");
+const navigation_hint = document.getElementById("navigation-hint");
+const next_button = document.getElementById("next-button");
+const quiz_panel = document.getElementById("quiz-panel");
+const result_panel = document.getElementById("result-panel");
+
+menu_button.addEventListener("click", () => {
+  const is_open = nav_links.classList.toggle("open");
+  menu_button.setAttribute("aria-expanded", String(is_open));
+});
+
+nav_links.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    nav_links.classList.remove("open");
+    menu_button.setAttribute("aria-expanded", "false");
+  });
+});
+
+function render_question() {
+  const item = questions[current_question];
+  const selected_answer = answers[current_question];
+  const answered_count = answers.filter((value) => value !== null).length;
+
+  question_counter.textContent =
+    `Soal ${current_question + 1} dari ${questions.length}`;
+
+  answered_counter.textContent =
+    `Terjawab: ${answered_count}/${questions.length}`;
+
+  progress_bar.style.width =
+    `${(current_question / questions.length) * 100}%`;
+
+  progress_track.setAttribute("aria-valuenow", String(current_question));
+
+  question_subject.textContent = item.subject;
+  question_title.textContent = item.question;
+  options_container.replaceChildren();
+
+  item.options.forEach((option_text, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "option";
+
+    if (selected_answer === index) {
+      button.classList.add("selected");
+    }
+
+    const letter = document.createElement("span");
+    letter.className = "option-letter";
+    letter.textContent = LETTERS[index];
+
+    const label = document.createElement("span");
+    label.textContent = option_text;
+
+    button.append(letter, label);
+
+    button.setAttribute(
+      "aria-pressed",
+      String(selected_answer === index)
+    );
+
+    button.addEventListener("click", () => {
+      if (quiz_finished) return;
+
+      answers[current_question] = index;
+
+      // Pilihan hanya ditandai. Tidak ada informasi benar atau salah.
+      render_question();
+    });
+
+    options_container.appendChild(button);
+  });
+
+  const is_last = current_question === questions.length - 1;
+  next_button.textContent = is_last ? "Kumpulkan Jawaban ✓" : "Soal Berikutnya →";
+  next_button.disabled = selected_answer === null;
+
+  navigation_hint.textContent = is_last
+    ? "Pastikan jawabanmu sudah dipilih sebelum mengumpulkan."
+    : "Kamu dapat kembali untuk mengubah jawaban sebelum dikumpulkan.";
+}
+
+next_button.addEventListener("click", () => {
+  if (quiz_finished || answers[current_question] === null) return;
+
+  if (current_question < questions.length - 1) {
+    current_question++;
+    render_question();
+    return;
+  }
+
+  const unanswered = answers.filter((value) => value === null).length;
+
+  if (unanswered > 0) {
+    const proceed = window.confirm(
+      `Masih ada ${unanswered} soal yang belum dijawab. Kumpulkan sekarang? Soal kosong akan dihitung salah.`
+    );
+
+    if (!proceed) return;
+  }
+
+  finish_quiz();
+});
+
+function finish_quiz() {
+  quiz_finished = true;
+
+  let correct_count = 0;
+
+  questions.forEach((item, index) => {
+    if (answers[index] === item.answer) correct_count++;
+  });
+
+  const unanswered_count = answers.filter((value) => value === null).length;
+  const wrong_count = questions.length - correct_count - unanswered_count;
+  const score = Math.round((correct_count / questions.length) * 100);
+
+  document.getElementById("result-score").textContent = score;
+  document.getElementById("correct-count").textContent = correct_count;
+  document.getElementById("wrong-count").textContent = wrong_count;
+  document.getElementById("unanswered-count").textContent = unanswered_count;
+
+  let title = "Tetap Semangat!";
+  let emoji = "💪";
+  let message = "Pelajari kembali pembahasannya dan coba lagi.";
+
+  if (score >= 90) {
+    title = "Luar Biasa!";
+    emoji = "🏆";
+    message = "Pemahamanmu sangat baik. Pertahankan kebiasaan belajarmu!";
+  } else if (score >= 75) {
+    title = "Bagus Sekali!";
+    emoji = "🎉";
+    message = "Kamu sudah memahami banyak materi. Terus berlatih!";
+  } else if (score >= 60) {
+    title = "Awal yang Baik!";
+    emoji = "🌟";
+    message = "Kamu sudah punya dasar. Gunakan pembahasan untuk memperkuatnya.";
+  }
+
+  document.getElementById("result-title").textContent = title;
+  document.getElementById("result-emoji").textContent = emoji;
+  document.getElementById("result-message").textContent =
+    `${message} Kamu menjawab ${correct_count} dari ${questions.length} soal dengan benar.`;
+
+  render_review();
+
+  quiz_panel.style.display = "none";
+  result_panel.classList.add("visible");
+  result_panel.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function render_review() {
+  const review_list = document.getElementById("review-list");
+  review_list.replaceChildren();
+
+  questions.forEach((item, index) => {
+    const selected = answers[index];
+    const is_correct = selected === item.answer;
+
+    const review = document.createElement("article");
+    review.className = `review-item ${is_correct ? "correct" : "wrong"}`;
+
+    const title = document.createElement("h4");
+    title.textContent = `${index + 1}. ${item.subject}: ${item.question}`;
+
+    const status = document.createElement("p");
+    status.className = "answer-label";
+    status.textContent = selected === null
+      ? "Hasil: Tidak dijawab"
+      : is_correct
+        ? "Hasil: Benar"
+        : "Hasil: Salah";
+
+    const your_answer = document.createElement("p");
+    your_answer.textContent = selected === null
+      ? "Jawabanmu: Belum memilih jawaban."
+      : `Jawabanmu: ${LETTERS[selected]}. ${item.options[selected]}`;
+
+    const correct_answer = document.createElement("p");
+    correct_answer.className = "answer-label";
+    correct_answer.textContent =
+      `Jawaban tepat: ${LETTERS[item.answer]}. ${item.options[item.answer]}`;
+
+    const explanation = document.createElement("p");
+    explanation.className = "explanation";
+    explanation.textContent = `Pembahasan: ${item.explanation}`;
+
+    review.append(title, status, your_answer, correct_answer, explanation);
+    review_list.appendChild(review);
+  });
+}
+
+document.getElementById("retry-button").addEventListener("click", () => {
+  current_question = 0;
+  answers = Array(questions.length).fill(null);
+  quiz_finished = false;
+
+  result_panel.classList.remove("visible");
+  quiz_panel.style.display = "block";
+
+  render_question();
+  document.getElementById("latihan").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+});
+
+document.getElementById("print-button").addEventListener("click", () => {
+  window.print();
+});
+
+render_question();
+</script>
+
+</body>
+</html>
